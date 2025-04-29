@@ -35,4 +35,25 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
+  theme: {
+    // Extend theme for custom animations
+    extend: {
+      keyframes: {
+        'bounce-slow': {
+          '0%, 100%': {
+            transform: 'translateY(-3%)',
+            animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
+          },
+          '50%': {
+            transform: 'translateY(0)',
+            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
+          },
+        },
+      },
+      animation: {
+        // Define the utility class `animate-bounce-slow`
+        'bounce-slow': 'bounce-slow 1.5s infinite',
+      },
+    },
+  },
 })
